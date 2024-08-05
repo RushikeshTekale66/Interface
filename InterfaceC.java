@@ -17,18 +17,26 @@ interface MathOperations {
 }
 
 class MathOperationsClass implements MathOperations{
+
+	@Override
 	public int add(int x, int y){
 		int result = x+y;
 		return result;
 	}
+
+	@Override
 	public int sub(int x, int y){
 		int result = x-y;
 		return result;
 	}
+
+	@Override
 	public int mul(int x, int y){
 		int result = x*y;
 		return result;
 	}
+
+	@Override
 	public double div(double x, double y){
 		double result = x/y;
 		return result;
