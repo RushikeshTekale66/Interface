@@ -1,30 +1,36 @@
-class MultipleInheritance{
+class InterfaceC{
 	public static void main(String [] args){
-		//Father referance so call father
-		Father f = new Child();
-		f.behaviour();
-		
-		//Mother referance so call mother
-		Mother m = new Child();
-		m.behaviour();
+		MathOperations m = new MathOperationsClass();
+		System.out.println(m.add(10, 10));;
+		System.out.println(m.sub(30, 20));
+		System.out.println(m.mul(10, 10));
+		System.out.println(m.div(10, 10));
 
-		//Child referance so don't know which one is called
-		Child c = new Child();
-		c.behaviour();
 	}
 }
 
-interface Father{
-	void behaviour();	
+interface MathOperations {
+	int add(int a, int b);
+	int sub(int a, int b);
+	int mul(int a, int b);
+	double div(double a, double b);
 }
 
-interface Mother{
-	void behaviour();
-}
-
-class Child implements Father, Mother{
-	@Override
-	public void behaviour(){
-		System.out.println("Angry bird");
+class MathOperationsClass implements MathOperations{
+	public int add(int x, int y){
+		int result = x+y;
+		return result;
+	}
+	public int sub(int x, int y){
+		int result = x-y;
+		return result;
+	}
+	public int mul(int x, int y){
+		int result = x*y;
+		return result;
+	}
+	public double div(double x, double y){
+		double result = x/y;
+		return result;
 	}
 }
