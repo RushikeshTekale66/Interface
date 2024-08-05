@@ -1,44 +1,58 @@
-class InterfaceC{
-	public static void main(String [] args){
-		MathOperations m = new MathOperationsClass();
-		System.out.println(m.add(10, 10));;
-		System.out.println(m.sub(30, 20));
-		System.out.println(m.mul(10, 10));
-		System.out.println(m.div(10, 10));
+class InterfaceC {
+	public static void main(String[] args) {
+		MathOperations m = new MathOperationsClass(20, 10);
+		m.add();
+		m.sub();
+		m.mul();
+		m.div();
 
 	}
 }
 
 interface MathOperations {
-	int add(int a, int b);
-	int sub(int a, int b);
-	int mul(int a, int b);
-	double div(double a, double b);
+	void add();
+	void sub();
+	void mul();
+	void div();
 }
 
-class MathOperationsClass implements MathOperations{
+class Values{
+	int a;
+	int b;
 
-	@Override
-	public int add(int x, int y){
-		int result = x+y;
-		return result;
+	public Values(int a, int b){
+		this.a = a;
+		this.b = b;
+	}
+}
+
+class MathOperationsClass extends Values implements MathOperations {
+
+	public MathOperationsClass(int a, int b) {
+		super(a, b);
 	}
 
 	@Override
-	public int sub(int x, int y){
-		int result = x-y;
-		return result;
+	public void add() {
+		int result = a + b;
+		System.out.println(result);
 	}
 
 	@Override
-	public int mul(int x, int y){
-		int result = x*y;
-		return result;
+	public void sub() {
+		int result = a - b;
+		System.out.println(result);
 	}
 
 	@Override
-	public double div(double x, double y){
-		double result = x/y;
-		return result;
+	public void mul() {
+		int result = a * b;
+		System.out.println(result);
+	}
+
+	@Override
+	public void div() {
+		double result = a / b;
+		System.out.println(result);
 	}
 }
